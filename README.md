@@ -37,11 +37,11 @@ Since there are many practices to be learned about and many of them pretty speci
 to various areas of app development, relevant READMEs are present throughout this
 starter kit.
 
-[Components](src/components/README.md)
+Here's the guides for each section of the starter kit:
 
-[Containers](src/containers/README.md)
-
-[Stores](src/stores/README.md)
+- [Components](src/components/README.md)
+- [Containers](src/containers/README.md)
+- [Stores](src/stores/README.md)
 
 These will be added to over time, and can be freely deleted once you're comfortable
 with the practices if you don't like them hanging around in your project. If you

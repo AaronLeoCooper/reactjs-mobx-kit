@@ -1,8 +1,6 @@
-import {
-  observable,
-  computed,
-  action
-} from 'mobx';
+import { observable, computed, action } from 'mobx';
+
+import { markdownToHtml } from './Text.utils';
 
 class Text {
 
@@ -12,11 +10,8 @@ class Text {
     this.rawText = text;
   }
 
-  @computed get markdown () {
-    const markdown = this.rawText
-      .replace(new RegExp('\\# ', 'g'), '');
-
-    return `<p>${markdown}</p>`;
+  @computed get htmlStr () {
+    return markdownToHtml(this.rawText);
   }
 
 }

@@ -31,10 +31,29 @@ These are the key commands you'll need:
 `npm run test:watch` — Run tests continuously as files inside `src` directory change
 
 
+## Best Practices
+
+Since there are many practices to be learned about and many of them pretty specific
+to various areas of app development, relevant READMEs are present throughout this
+starter kit.
+
+[Components](src/components/README.md)
+
+[Containers](src/containers/README.md)
+
+[Stores](src/stores/README.md)
+
+These will be added to over time, and can be freely deleted once you're comfortable
+with the practices if you don't like them hanging around in your project. If you
+notice any corrections or improvements that can be made to these, feel free to open
+a pull request!
+
+
 ## To-do Goals
 
+- [ ] Add better MobX examples with some proper component integration
+- [ ] Write more best practices guides for optimum project setup
 - [ ] Add component generator CLI
-- [ ] Write best practices guide for optimum project setup
 
 
 ## Suggestions?

@@ -6,7 +6,7 @@ connect to the MobX store and usually render **components**,
 passing down props that generally come from the MobX store.
 The props can either be MobX state or action creator methods.
 
-The optimal structure for components is to place files relevant
+The optimal structure for containers is to place files relevant
 to a container inside its own subdirectory, e.g.:
 
 ```

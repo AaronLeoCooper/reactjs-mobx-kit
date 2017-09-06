@@ -6,8 +6,9 @@ class Text {
 
   @observable rawText = '';
 
-  @action setText = (text) => {
-    this.rawText = text;
+  @action.bound
+  setText (e) {
+    this.rawText = e.target.value;
   }
 
   @computed get htmlStr () {

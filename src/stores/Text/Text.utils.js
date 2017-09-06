@@ -1,4 +1,4 @@
-export function markdownToHtml (str) {
+export function markdownToHtml (str = '') {
   let html = str;
 
   // headings

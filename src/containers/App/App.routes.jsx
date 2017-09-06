@@ -1,19 +1,12 @@
-import Hello from '../../components/Hello';
+import Editor from '../../components/Editor';
 
 const routes = [
   {
     path: '/',
-    component: Hello,
+    component: Editor,
     exact: true,
     navOptions: {
-      label: 'Home'
-    }
-  },
-  {
-    path: '/temp',
-    component: Hello,
-    navOptions: {
-      label: 'Home 2'
+      label: 'Editor'
     }
   }
 ];

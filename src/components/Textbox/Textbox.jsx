@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 import s from './Textbox.styles.scss';
 
+@inject('Text')
 @observer
 class Textbox extends Component {
 
@@ -11,7 +12,7 @@ class Textbox extends Component {
     const {
       rawText,
       setText
-    } = this.props;
+    } = this.props.Text;
 
     return (
       <textarea
@@ -24,13 +25,11 @@ class Textbox extends Component {
 
 }
 
-Textbox.propTypes = {
-  rawText: PropTypes.string,
-  setText: PropTypes.func.isRequired
-};
-
-Textbox.defaultProps = {
-  rawText: ''
+Textbox.wrappedComponent.propTypes = {
+  Text: PropTypes.shape({
+    rawText: PropTypes.string,
+    setText: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export default Textbox;

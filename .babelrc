@@ -9,7 +9,8 @@
       "plugins": [
         "react-hot-loader/babel",
         "transform-decorators-legacy",
-        "transform-async-to-generator"
+        "transform-async-to-generator",
+        "transform-class-properties"
       ]
     },
     "production": {
@@ -20,7 +21,8 @@
       ],
       "plugins": [
         "transform-decorators-legacy",
-        "transform-async-to-generator"
+        "transform-async-to-generator",
+        "transform-class-properties"
       ]
     },
     "test": {
@@ -30,9 +32,9 @@
         "react"
       ],
       "plugins": [
-        "react-hot-loader/babel",
         "transform-decorators-legacy",
-        "transform-async-to-generator"
+        "transform-async-to-generator",
+        "transform-class-properties"
       ]
     }
   }

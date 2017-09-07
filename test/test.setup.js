@@ -9,9 +9,9 @@ const { window } = jsdom;
 
 proxyquire.noCallThru();
 
-mockCssModules.register([ '.scss' ]);
-
 ignoreImportExtensions([ '.jpg', '.jpeg', '.png', '.gif', '.svg' ]);
+
+mockCssModules.register([ '.scss' ]);
 
 global.window = window;
 global.document = window.document;

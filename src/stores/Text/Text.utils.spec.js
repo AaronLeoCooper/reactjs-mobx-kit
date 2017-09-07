@@ -5,6 +5,10 @@ import { markdownToHtml } from './Text.utils';
 suite('Text utils');
 
 test('markdownToHtml', function () {
+  const defaultOutput = markdownToHtml();
+
+  assert.equal(defaultOutput, '<p></p>', 'default returns empty <p>');
+
   const md = `# heading!
 ## heading 2!
 ### heading 3!`;

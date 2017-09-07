@@ -1,9 +1,8 @@
 import { assert } from 'chai';
-// import proxyquire from 'proxyquire';
-// import { getProxyConfig } from '../../../test/test.helpers';
+import { stub } from 'sinon';
+import proxyquire from 'proxyquire';
 
 import Text from './';
-import { markdownToHtml } from './Text.utils';
 
 suite('Text');
 
@@ -21,10 +20,22 @@ test('@action setText()', function () {
   assert.equal(text.rawText, 'test', 'updates rawText');
 });
 
-test.skip('@computed htmlStr', function () {
-  const text = new Text();
+test('@computed htmlStr', function () {
+  const mdStub = stub().returns('return val');
+
+  const StubbedText = proxyquire('./Text', {
+    './Text.utils': {
+      markdownToHtml: mdStub
+    }
+  }).default;
+
+  const text = new StubbedText();
 
   text.setText({ target: { value: 'test' } });
 
-  assert.equal(text.rawText, 'test', 'updates rawText');
+  const htmlStr = text.htmlStr;
+
+  assert.isTrue(mdStub.calledOnce, 'calls markdownToHtml');
+  assert.equal(mdStub.args[0][0], 'test', 'calls markdownToHtml with value');
+  assert.equal(htmlStr, 'return val', 'returns markdownToHtml output');
 });

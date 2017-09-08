@@ -1,25 +1,17 @@
 import React from 'react';
 import { assert } from 'chai';
 import { shallow } from 'enzyme';
-import proxyquire from 'proxyquire';
-import { getProxyConfig, getClasses } from '../../../test/test.helpers';
 
-import s from './HtmlPreview.styles.scss';
-
-const c = getClasses(s);
-
-const getHtmlPreview = () =>
-  proxyquire('./', getProxyConfig());
+import HtmlPreview from './';
 
 suite('HtmlPreview');
 
 test('renders html from string', function () {
+  const htmlStr = '<p>html output</p>';
+
   const node = shallow(
-    <getHtmlPreview />
+    <HtmlPreview Text={{ htmlStr }} />
   );
 
-  console.log(s);
-  console.log(c);
-
-  // const renderedNode = node.find()
+  assert.isTrue(node.html().includes(htmlStr), 'renders html');
 });

@@ -1,33 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 
 import s from './HtmlPreview.styles.scss';
 
-@inject('Text')
-@observer
-class HtmlPreview extends Component {
+function HtmlPreview ({ Text }) {
+  const { htmlStr } = Text;
 
-  render () {
-    const { htmlStr } = this.props.Text;
+  const innerHtml = { __html: htmlStr };
 
-    const innerHtml = { __html: htmlStr };
-
-    return (
-      <div
-        className={s.container}
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={innerHtml}
-      />
-    );
-  }
-
+  return (
+    <div
+      className={s.container}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={innerHtml}
+    />
+  );
 }
 
-HtmlPreview.wrappedComponent.propTypes = {
+HtmlPreview.propTypes = {
   Text: PropTypes.shape({
     htmlStr: PropTypes.string
   }).isRequired
 };
 
-export default HtmlPreview;
+export default inject('Text')(
+  observer(HtmlPreview)
+);

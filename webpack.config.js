@@ -115,6 +115,7 @@ const envConfig = IS_PROD
       overlay: true,
       historyApiFallback: true,
       disableHostCheck: true,
+      stats: 'minimal',
       publicPath,
       port,
       host

@@ -1,35 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 
 import s from './Textbox.styles.scss';
 
-@inject('Text')
-@observer
-class Textbox extends Component {
+function Textbox ({ Text }) {
+  const {
+    rawText,
+    setText
+  } = Text;
 
-  render () {
-    const {
-      rawText,
-      setText
-    } = this.props.Text;
-
-    return (
+  return (
+    <div>
       <textarea
         value={rawText}
         onChange={setText}
         className={s.textarea}
+        placeholder="Write markdown!"
       />
-    );
-  }
-
+    </div>
+  );
 }
 
-Textbox.wrappedComponent.propTypes = {
+Textbox.propTypes = {
   Text: PropTypes.shape({
     rawText: PropTypes.string,
     setText: PropTypes.func.isRequired
   }).isRequired
 };
 
-export default Textbox;
+export default inject('Text')(
+  observer(Textbox)
+);

@@ -14,8 +14,4 @@ function Editor () {
   );
 }
 
-Editor.propTypes = {};
-
-Editor.defaultProps = {};
-
 export default Editor;

@@ -8,11 +8,18 @@ to a store inside its own subdirectory, e.g.:
 
 ```
 stores/
+├── createStore.js
+├── createStore.spec.js
 └── Text/
     ├── index.js
     ├── Text.jsx
     └── Text.spec.jsx
 ```
+
+Notice that `createStore.js` is a module in the top level of the
+`stores` directory. This module's purpose is to combine all stores
+for the app and return instances of each store to be passed to
+MobX `<Provider />` node (located inside `src/Provider.jsx`).
 
 
 ## Do:

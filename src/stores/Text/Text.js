@@ -1,22 +1,17 @@
-import {
-  observable,
-  computed,
-  action
-} from 'mobx';
+import { observable, computed, action } from 'mobx';
+
+import { markdownToHtml } from './Text.utils';
 
 class Text {
 
   @observable rawText = '';
 
-  @action setText = (text) => {
-    this.rawText = text;
+  @action setText = (e) => {
+    this.rawText = e.target.value;
   }
 
-  @computed get markdown () {
-    const markdown = this.rawText
-      .replace(new RegExp('\\# ', 'g'), '');
-
-    return `<p>${markdown}</p>`;
+  @computed get htmlStr () {
+    return markdownToHtml(this.rawText);
   }
 
 }

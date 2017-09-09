@@ -1,8 +1,7 @@
 import React from 'react';
 import { assert } from 'chai';
 import { shallow } from 'enzyme';
-// import proxyquire from 'proxyquire';
-// import { getProxyConfig } from '../../../test/test.helpers';
+import DevTools from 'mobx-react-devtools';
 
 import App from './';
 import routes from './App.routes';
@@ -11,6 +10,10 @@ import Router from '../Router';
 const browserHistory = { test: 123 };
 
 suite('App');
+
+afterEach(function () {
+  process.env.NODE_ENV = 'test';
+});
 
 test('renders <Router>', function () {
   const node = shallow(
@@ -34,15 +37,24 @@ test('renders <Router>', function () {
   );
 });
 
-// test('connects to store', () => {
-//   const observer = stub();
+test('renders <DevTools> (development)', function () {
+  const node = shallow(
+    <App browserHistory={browserHistory} />
+  );
 
-//   const App = proxyquire(
-//     './App',
-//     getProxyConfig({ observer })
-//   ).default;
+  const devToolsNode = node.find(DevTools);
 
-//   shallow(<App />);
+  assert.equal(devToolsNode.length, 1, 'renders <DevTools>');
+});
 
-//   assert.isTrue(observer.calledOnce, 'observable wraps App');
-// });
+test('does not render <DevTools> (production)', function () {
+  process.env.NODE_ENV = 'production';
+
+  const node = shallow(
+    <App browserHistory={browserHistory} />
+  );
+
+  const devToolsNode = node.find(DevTools);
+
+  assert.equal(devToolsNode.length, 0, 'does not render <DevTools>');
+});

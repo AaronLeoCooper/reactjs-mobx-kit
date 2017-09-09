@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 import proxyquire from 'proxyquire';
-import mockCssModules from 'mock-css-modules';
+import hook from 'css-modules-require-hook';
 
 import { ignoreImportExtensions, copyProps } from './test.helpers';
 
@@ -9,9 +9,12 @@ const { window } = jsdom;
 
 proxyquire.noCallThru();
 
-mockCssModules.register([ '.scss' ]);
-
 ignoreImportExtensions([ '.jpg', '.jpeg', '.png', '.gif', '.svg' ]);
+
+hook({
+  generateScopedName: '[name]__[local]___[hash:base64:5]',
+  extensions: [ '.scss' ]
+});
 
 global.window = window;
 global.document = window.document;

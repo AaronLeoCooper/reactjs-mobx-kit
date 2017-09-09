@@ -50,7 +50,7 @@ a pull request!
 
 ## To-do Goals
 
-- [ ] Add better MobX examples with some proper component integration
+- [ ] Add async store action examples with `fetch`
 - [ ] Write more best practices guides for optimum project setup
 - [ ] Add component generator CLI
 
@@ -84,10 +84,6 @@ This little boilerplate project was created to provide an _opinionated_, _struct
 starting point for ReactJS apps of all sizes, with the hope that it will somewhat ease
 the burdens placed upon you — the engineer — of building scaleable, unit-tested and
 performant web apps.
-
-This project will likely remain under constant development and undergo many changes
-to stay up to date with the crazy-fast evolution of the JavaScript scene to remain
-relevant.
 
 **Developed by [Aaron Leo Cooper](http://webdevdiaries.com) @
 [2359Media](https://2359media.com)**

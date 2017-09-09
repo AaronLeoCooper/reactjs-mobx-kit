@@ -1,6 +1,6 @@
 {
   "name": "reactjs-mobx-kit",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "TDD-focused ReactJS, MobX, React Router starter kit",
   "main": "index.js",
   "scripts": {

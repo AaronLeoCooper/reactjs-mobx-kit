@@ -6,8 +6,7 @@ class Text {
 
   @observable rawText = '';
 
-  @action
-  setText = (e) => {
+  @action setText = (e) => {
     this.rawText = e.target.value;
   }
 

@@ -11,7 +11,7 @@ export function noop () {}
  * Dummy simple decorator
  * @param {*} _
  */
-const decoratorSimple = (_) => _;
+const decoratorSimple = _ => _;
 
 /**
  * Dummy curried decorator
@@ -55,7 +55,25 @@ export function ignoreImportExtensions (extensions = []) {
  */
 export function copyProps (src, target) {
   const props = Object.getOwnPropertyNames(src)
-    .filter((prop) => typeof target[prop] === 'undefined')
-    .map((prop) => Object.getOwnPropertyDescriptor(src, prop));
+    .filter(prop => typeof target[prop] === 'undefined')
+    .map(prop => Object.getOwnPropertyDescriptor(src, prop));
   Object.defineProperties(target, props);
+}
+
+/**
+ * Convert style names to class selectors
+ * @param {object} styles
+ */
+export function getClasses (styles) {
+  return Object.keys(styles)
+    .reduce((acc, key) => {
+      const classes = styles[key]
+        .split(' ')
+        .join('.');
+
+      return {
+        ...acc,
+        [key]: `.${classes}`
+      };
+    }, {});
 }

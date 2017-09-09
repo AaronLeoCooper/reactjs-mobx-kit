@@ -30,6 +30,11 @@ components/
 - Try to create new, reusable components instead of
   "sub-components" (i.e. prefer not to create sub-directories
   that contain more components)
+- Connect all components (no matter how small) with mobx-react
+  `observer` if they use props that come from the store for the
+  best performance
+  (e.g. the parent component passing store props into the child
+  component)
 - **Be consistent**— however you choose to lay things out
 
 
@@ -37,7 +42,4 @@ components/
 
 - Mix concerns (files, modules) that should really belong to
   other components
-- Directly connect components the MobX store— that's
-  specifically what **containers** are for, and containers can
-  render components
 - Forget to write tests... ;)

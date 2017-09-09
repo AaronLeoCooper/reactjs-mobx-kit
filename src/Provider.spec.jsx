@@ -5,7 +5,7 @@ import { Provider as MobxProvider } from 'mobx-react';
 
 import Provider from './Provider';
 
-import App from './containers/App';
+import App from './components/App';
 
 suite('Provider');
 

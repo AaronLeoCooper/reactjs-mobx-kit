@@ -5,7 +5,7 @@ import { syncHistoryWithStore } from 'mobx-react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import createStore from './stores/createStore';
-import App from './containers/App';
+import App from './components/App';
 
 useStrict(true); // MobX strict mode
 

@@ -7,7 +7,7 @@ import './App.styles.scss';
 
 import routes from './App.routes';
 import Router from '../Router';
-import Header from '../../components/Header';
+import Header from '../Header';
 
 function App ({ browserHistory }) {
   const navItems = routes.filter(route => route.navOptions);

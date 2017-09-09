@@ -1,6 +1,7 @@
 import React from 'react';
 import { assert } from 'chai';
-import { shallow } from 'enzyme';
+import { stub } from 'sinon';
+import { mount } from 'enzyme';
 import { getClasses, noop } from '../../../test/test.helpers';
 
 import Textbox from './';
@@ -10,10 +11,10 @@ const c = getClasses(s);
 
 suite('Textbox');
 
-test.skip('renders html from string', function () {
+test('passes value to <textarea>', function () {
   const rawText = 'a value';
 
-  const node = shallow(
+  const node = mount(
     <Textbox Text={{ rawText, setText: noop }} />
   );
 
@@ -21,5 +22,26 @@ test.skip('renders html from string', function () {
 
   assert.equal(
     textarea.prop('value'), rawText, 'passes rawText to textarea value'
+  );
+});
+
+test('<textarea>', function () {
+  const setText = stub();
+
+  const node = mount(
+    <Textbox Text={{ setText }} />
+  );
+
+  const textarea = node.find(c.textarea);
+
+  const e = { target: { value: 'a value' } };
+
+  textarea.simulate('change', e);
+
+  assert.isTrue(setText.calledOnce, 'setText called once');
+  assert.deepEqual(
+    setText.args[0][0].target,
+    e.target,
+    'setText receives <textarea> event'
   );
 });

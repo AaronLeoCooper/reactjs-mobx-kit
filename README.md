@@ -50,7 +50,7 @@ a pull request!
 
 ## To-do Goals
 
-- [ ] Add async store action examples with `fetch`
+- [ ] Add a component styleguide (possibly React Storybook or React Styleguidist)
 - [ ] Write more best practices guides for optimum project setup
 - [ ] Add component generator CLI
 

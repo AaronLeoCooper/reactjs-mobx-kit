@@ -1,4 +1,5 @@
-import Editor from '../../components/Editor';
+import Editor from '../../containers/Editor';
+import UserSearch from '../../containers/UserSearch';
 
 const routes = [
   {
@@ -6,7 +7,15 @@ const routes = [
     component: Editor,
     exact: true,
     navOptions: {
-      label: 'Editor'
+      label: 'Markdown Editor'
+    }
+  },
+  {
+    path: '/user-search',
+    component: UserSearch,
+    exact: true,
+    navOptions: {
+      label: 'Github User Search'
     }
   }
 ];

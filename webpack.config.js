@@ -130,6 +130,7 @@ module.exports = {
   entry: [
     ...entry,
     'babel-polyfill',
+    'whatwg-fetch',
     `${srcDirRelative}/index`
   ],
   output: {

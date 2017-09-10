@@ -12,24 +12,27 @@ const c = getClasses(s);
 suite('Textbox');
 
 test('passes value to <textarea>', function () {
-  const rawText = 'a value';
+  const value = 'a value';
 
   const node = mount(
-    <Textbox Text={{ rawText, setText: noop }} />
+    <Textbox
+      value={value}
+      onChange={noop}
+    />
   );
 
   const textarea = node.find(c.textarea);
 
   assert.equal(
-    textarea.prop('value'), rawText, 'passes rawText to textarea value'
+    textarea.prop('value'), value, 'passes value prop to textarea value'
   );
 });
 
-test('<textarea>', function () {
-  const setText = stub();
+test('onChange gets called', function () {
+  const onChange = stub();
 
   const node = mount(
-    <Textbox Text={{ setText }} />
+    <Textbox onChange={onChange} />
   );
 
   const textarea = node.find(c.textarea);
@@ -38,10 +41,10 @@ test('<textarea>', function () {
 
   textarea.simulate('change', e);
 
-  assert.isTrue(setText.calledOnce, 'setText called once');
+  assert.isTrue(onChange.calledOnce, 'onChange called once');
   assert.deepEqual(
-    setText.args[0][0].target,
+    onChange.args[0][0].target,
     e.target,
-    'setText receives <textarea> event'
+    'onChange receives <textarea> event'
   );
 });

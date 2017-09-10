@@ -36,6 +36,7 @@
       { "forbid": [ "any", "array" ] }
     ],
     "react/prefer-stateless-function": "off",
+    "react/require-default-props": "off",
     "prefer-arrow-callback": "off",
     "func-names": "off"
   },

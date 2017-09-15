@@ -33,7 +33,7 @@ class Editor extends Component {
 
 }
 
-Editor.propTypes = {
+Editor.wrappedComponent.propTypes = {
   Text: PropTypes.shape({
     rawText: PropTypes.string,
     htmlStr: PropTypes.string,

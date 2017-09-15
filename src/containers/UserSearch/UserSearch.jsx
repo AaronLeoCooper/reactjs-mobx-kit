@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject, PropTypes } from 'mobx-react';
+import debounce from 'lodash.debounce';
 
 import SearchInput from '../../components/SearchInput';
 import UsersList from '../../components/UsersList';
@@ -8,20 +9,35 @@ import UsersList from '../../components/UsersList';
 @observer
 class UserSearch extends Component {
 
-  render () {
-    const { Users } = this.props;
+  onInputChange = (e) => {
+    // e.persist();
+    const value = e.target.value;
 
+    this.debouncedSearchUser(value);
+  }
+
+  debouncedSearchUser = debounce(
+    (value) => {
+      const { searchUser } = this.props.Users;
+
+      searchUser(value);
+    },
+    300
+  )
+
+  render () {
     const {
       isFetching,
-      usersHistory,
-      searchUser
-    } = Users;
+      usersHistory
+    } = this.props.Users;
+
+    console.info('usersHistory', usersHistory); // eslint-disable-line
 
     return (
       <div>
         <SearchInput
           isFetching={isFetching}
-          onChange={searchUser}
+          onChange={this.onInputChange}
         />
         <UsersList users={usersHistory} />
       </div>

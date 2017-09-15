@@ -1,4 +1,4 @@
-class User {
+export default class User {
 
   id;
   login;
@@ -17,5 +17,3 @@ class User {
   }
 
 }
-
-export default User;

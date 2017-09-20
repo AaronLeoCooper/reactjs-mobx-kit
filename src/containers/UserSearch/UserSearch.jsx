@@ -10,7 +10,6 @@ import UsersList from '../../components/UsersList';
 class UserSearch extends Component {
 
   onInputChange = (e) => {
-    // e.persist();
     const value = e.target.value;
 
     this.debouncedSearchUser(value);
@@ -30,8 +29,6 @@ class UserSearch extends Component {
       isFetching,
       usersHistory
     } = this.props.Users;
-
-    console.info('usersHistory', usersHistory); // eslint-disable-line
 
     return (
       <div>

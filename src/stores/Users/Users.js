@@ -1,6 +1,9 @@
 import { observable, action, runInAction } from 'mobx';
 
+import { fetchUser } from './Users.utils';
 import User from './User';
+
+const getActionType = type => `Users :: ${type}`;
 
 export default class Users {
 
@@ -8,33 +11,29 @@ export default class Users {
   @observable userNotFound = '';
   @observable usersHistory = [];
 
-  @action.bound
-  async searchUser (userName) {
+  @action(getActionType('searchUser'))
+  searchUser = async (userName) => {
     this.isFetching = true;
 
     try {
-      const user = await this.fetchUser(userName);
+      const user = await fetchUser(userName);
 
       const wasUserFound = !!user.id;
 
       if (wasUserFound) {
-        runInAction('add new user', () => {
+        runInAction(getActionType('add new user'), () => {
           this.usersHistory.push(new User(user));
         });
       } else {
-        runInAction('no user found', () => {
+        runInAction(getActionType('no user found'), () => {
           this.userNotFound = userName;
         });
       }
     } catch (e) { /* empty */ }
 
-    runInAction('end searchUser', () => {
+    runInAction(getActionType('end searchUser'), () => {
       this.isFetching = false;
     });
   }
-
-  fetchUser = userName =>
-    fetch(`https://api.github.com/users/${userName}`)
-      .then(res => res.json())
 
 }

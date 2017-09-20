@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
+import s from './UserItem.styles.scss';
+
 function UserItem ({
   id,
   login,
@@ -11,13 +13,28 @@ function UserItem ({
   htmlUrl
 }) {
   return (
-    <div>
-      <div>{id}</div>
-      <div>{login}</div>
-      <div>{name}</div>
-      <div>{company}</div>
-      <div>{avatarUrl}</div>
-      <div>{htmlUrl}</div>
+    <div className={s.container}>
+      <img
+        src={avatarUrl}
+        alt="User avatar"
+        className={s.avatar}
+      />
+      <div>
+        <strong>Id </strong>{id}
+      </div>
+      <div>
+        <strong>Login </strong>{login}
+      </div>
+      <div>
+        <strong>Name </strong>{name}
+      </div>
+      <div>
+        <strong>Company </strong>{company}
+      </div>
+      <div>
+        <strong>HtmlUrl </strong>
+        <a href={htmlUrl} target="_blank">{htmlUrl}</a>
+      </div>
     </div>
   );
 }

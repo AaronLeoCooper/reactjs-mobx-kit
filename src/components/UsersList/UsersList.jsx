@@ -1,11 +1,12 @@
 import React from 'react';
 import { observer, PropTypes } from 'mobx-react';
 
+import s from './UsersList.styles.scss';
 import UserItem from '../UserItem';
 
 function UsersList ({ users }) {
   return (
-    <div>
+    <div className={s.container}>
       {
         users.map(user => (
           <UserItem

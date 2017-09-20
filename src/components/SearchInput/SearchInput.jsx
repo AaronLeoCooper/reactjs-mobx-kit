@@ -4,7 +4,10 @@ import { observer } from 'mobx-react';
 
 import s from './SearchInput.styles.scss';
 
-function SearchInput ({ isFetching, onChange }) {
+function SearchInput ({
+  isFetching,
+  onChange
+}) {
   const loadingNode = isFetching
     ? (
       <div className={s.loading}>

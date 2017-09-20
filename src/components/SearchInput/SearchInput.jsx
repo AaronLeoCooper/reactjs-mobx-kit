@@ -6,6 +6,7 @@ import s from './SearchInput.styles.scss';
 
 function SearchInput ({
   isFetching,
+  userNotFound,
   onChange
 }) {
   const loadingNode = isFetching
@@ -13,6 +14,12 @@ function SearchInput ({
       <div className={s.loading}>
         Loading...
       </div>
+    )
+    : null;
+
+  const userNotFoundNode = userNotFound
+    ? (
+      <p>{userNotFound} not found!</p>
     )
     : null;
 
@@ -24,6 +31,7 @@ function SearchInput ({
         placeholder="Enter a Github username"
         onChange={onChange}
       />
+      {userNotFoundNode}
       {loadingNode}
     </div>
   );
@@ -31,11 +39,13 @@ function SearchInput ({
 
 SearchInput.propTypes = {
   isFetching: PropTypes.bool,
+  userNotFound: PropTypes.string,
   onChange: PropTypes.func.isRequired
 };
 
 SearchInput.defaultProps = {
-  isFetching: false
+  isFetching: false,
+  userNotFound: ''
 };
 
 export default observer(SearchInput);

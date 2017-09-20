@@ -3,17 +3,16 @@ import { observable, action, runInAction } from 'mobx';
 import { fetchUser } from './Users.utils';
 import User from './User';
 
-const getActionType = type => `Users :: ${type}`;
-
 export default class Users {
 
   @observable isFetching = false;
   @observable userNotFound = '';
   @observable usersHistory = [];
 
-  @action(getActionType('searchUser'))
+  @action('Users :: searchUser')
   searchUser = async (userName) => {
     this.isFetching = true;
+    this.userNotFound = '';
 
     try {
       const user = await fetchUser(userName);
@@ -21,17 +20,17 @@ export default class Users {
       const wasUserFound = !!user.id;
 
       if (wasUserFound) {
-        runInAction(getActionType('add new user'), () => {
+        runInAction('Users :: add new user', () => {
           this.usersHistory.push(new User(user));
         });
       } else {
-        runInAction(getActionType('no user found'), () => {
+        runInAction('Users :: no user found', () => {
           this.userNotFound = userName;
         });
       }
     } catch (e) { /* empty */ }
 
-    runInAction(getActionType('end searchUser'), () => {
+    runInAction('Users :: end searchUser', () => {
       this.isFetching = false;
     });
   }

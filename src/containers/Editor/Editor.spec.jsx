@@ -1,7 +1,8 @@
-import React from 'react';
+// import React from 'react';
 import { assert } from 'chai';
 import { stub } from 'sinon';
-import { mount } from 'enzyme';
+// import { mount } from 'enzyme';
+import { mountWithStores } from '../../../test/test.helpers';
 
 import Editor from './';
 import Textbox from '../../components/Textbox';
@@ -16,8 +17,8 @@ test('renders expected children', function () {
     setText: stub()
   };
 
-  const node = mount(
-    <Editor Text={store} />
+  const node = mountWithStores({ Text: store })(
+    Editor
   );
 
   const textbox = node.find(Textbox);
@@ -40,7 +41,7 @@ test('renders expected children', function () {
   assert.equal(htmlPreview.length, 1, 'renders <HtmlPreview>');
 
   assert.equal(
-    textbox.prop('htmlStr'),
+    htmlPreview.prop('htmlStr'),
     store.htmlStr,
     'passes htmlStr to <HtmlPreview>'
   );

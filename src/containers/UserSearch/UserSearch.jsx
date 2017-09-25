@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { observer, inject, PropTypes } from 'mobx-react';
+import PropTypes from 'prop-types';
+import { observer, inject, PropTypes as MXPropTypes } from 'mobx-react';
 import debounce from 'lodash.debounce';
 
 import SearchInput from '../../components/SearchInput';
@@ -27,6 +28,7 @@ class UserSearch extends Component {
   render () {
     const {
       isFetching,
+      userNotFound,
       usersHistory
     } = this.props.Users;
 
@@ -34,6 +36,7 @@ class UserSearch extends Component {
       <div>
         <SearchInput
           isFetching={isFetching}
+          userNotFound={userNotFound}
           onChange={this.onInputChange}
         />
         <UsersList users={usersHistory} />
@@ -44,7 +47,12 @@ class UserSearch extends Component {
 }
 
 UserSearch.wrappedComponent.propTypes = {
-  Users: PropTypes.observableObject.isRequired
+  Users: PropTypes.shape({
+    searchUser: PropTypes.func,
+    isFetching: PropTypes.bool,
+    userNotFound: PropTypes.string,
+    usersHistory: MXPropTypes.observableArray
+  }).isRequired
 };
 
 export default UserSearch;

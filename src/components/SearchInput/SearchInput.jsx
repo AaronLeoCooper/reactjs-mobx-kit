@@ -19,7 +19,7 @@ function SearchInput ({
 
   const userNotFoundNode = userNotFound
     ? (
-      <p>{userNotFound} not found!</p>
+      <p className={s.notFound}>{userNotFound} not found!</p>
     )
     : null;
 

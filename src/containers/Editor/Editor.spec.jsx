@@ -1,7 +1,5 @@
-// import React from 'react';
 import { assert } from 'chai';
 import { stub } from 'sinon';
-// import { mount } from 'enzyme';
 import { mountWithStores } from '../../../test/test.helpers';
 
 import Editor from './';

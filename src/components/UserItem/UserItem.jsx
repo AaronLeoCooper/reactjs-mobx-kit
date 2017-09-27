@@ -19,21 +19,26 @@ function UserItem ({
         alt="User avatar"
         className={s.avatar}
       />
-      <div>
+      <div className={s.id}>
         <strong>Id </strong>{id}
       </div>
-      <div>
+      <div className={s.login}>
         <strong>Login </strong>{login}
       </div>
-      <div>
+      <div className={s.name}>
         <strong>Name </strong>{name}
       </div>
-      <div>
+      <div className={s.company}>
         <strong>Company </strong>{company}
       </div>
-      <div>
+      <div className={s.htmlUrl}>
         <strong>HtmlUrl </strong>
-        <a href={htmlUrl} target="_blank">{htmlUrl}</a>
+        <a
+          href={htmlUrl}
+          target="_blank"
+        >
+          {htmlUrl}
+        </a>
       </div>
     </div>
   );

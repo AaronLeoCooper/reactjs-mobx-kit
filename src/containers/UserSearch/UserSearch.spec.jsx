@@ -1,46 +1,79 @@
+import { shallow } from 'enzyme';
 import { assert } from 'chai';
 import { stub } from 'sinon';
 import { mountWithStores } from '../../../test/test.helpers';
+import { observable } from 'mobx';
 
 import UserSearch from './';
 import SearchInput from '../../components/SearchInput';
 import UsersList from '../../components/UsersList';
 
+const store = {
+  searchUser: stub(),
+  isFetching: false,
+  userNotFound: 'test not found',
+  usersHistory: observable([])
+};
+
+const mountWrapped = mountWithStores({ Users: store });
+
 suite('UserSearch');
 
-// test('renders expected children', function () {
-//   const store = {
-//     rawText: 'test',
-//     htmlStr: '<p>test</p>',
-//     setText: stub()
-//   };
+beforeEach(function () {
+  store.searchUser.reset();
+});
 
-//   const node = mountWithStores({ Text: store })(
-//     UserSearch
-//   );
+test('renders expected children', function () {
+  const node = mountWrapped(UserSearch);
 
-//   const textbox = node.find(Textbox);
-//   const htmlPreview = node.find(HtmlPreview);
+  const searchInput = node.find(SearchInput);
+  const usersList = node.find(UsersList);
 
-//   assert.equal(textbox.length, 1, 'renders <Textbox>');
+  assert.equal(searchInput.length, 1, 'renders <SearchInput>');
 
-//   assert.equal(
-//     textbox.prop('value'),
-//     store.rawText,
-//     'passes rawText to <Textbox> value'
-//   );
+  assert.equal(
+    searchInput.prop('isFetching'),
+    store.isFetching,
+    'passes isFetching to <SearchInput>'
+  );
 
-//   assert.deepEqual(
-//     textbox.prop('onChange'),
-//     store.setText,
-//     'passes setText to <Textbox> onChange'
-//   );
+  assert.equal(
+    searchInput.prop('userNotFound'),
+    store.userNotFound,
+    'passes userNotFound to <SearchInput>'
+  );
 
-//   assert.equal(htmlPreview.length, 1, 'renders <HtmlPreview>');
+  assert.equal(usersList.length, 1, 'renders <UsersList>');
 
-//   assert.equal(
-//     htmlPreview.prop('htmlStr'),
-//     store.htmlStr,
-//     'passes htmlStr to <HtmlPreview>'
-//   );
+  assert.deepEqual(
+    usersList.prop('users'),
+    store.usersHistory,
+    'passes usersHistory to <UsersList>'
+  );
+});
+
+// test('onInputChange', function (done) {
+//   const node = mountWrapped(UserSearch);
+
+//   const searchInput = node.find(SearchInput);
+
+//   const instance = shallow(node.find('.UserSearch')).instance();
+
+//   const e = { target: { value: 'test' } };
+
+//   // searchInput.simulate('change', e);
+
+//   instance.onInputChange(e);
+
+//   setTimeout(() => {
+//     console.info(store.searchUser.args[0]);
+
+//     assert.deepEqual(
+//       store.searchUser.args[0][0],
+//       e,
+//       'calls searchUser with input event'
+//     );
+
+//     done();
+//   }, 400);
 // });

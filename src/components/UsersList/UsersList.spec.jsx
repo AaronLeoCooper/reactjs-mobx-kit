@@ -8,7 +8,7 @@ import UserItem from '../UserItem';
 
 const users = observable([
   {
-    id: 'id1',
+    id: 1,
     name: 'name1',
     login: 'login1',
     company: 'company1',
@@ -16,7 +16,7 @@ const users = observable([
     htmlUrl: 'htmlUrl1'
   },
   {
-    id: 'id2',
+    id: 2,
     name: 'name2',
     login: 'login2',
     company: 'company2',

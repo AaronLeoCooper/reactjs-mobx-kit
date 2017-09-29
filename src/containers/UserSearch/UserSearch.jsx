@@ -33,7 +33,7 @@ class UserSearch extends Component {
     } = this.props.Users;
 
     return (
-      <div>
+      <div className="UserSearch">
         <SearchInput
           isFetching={isFetching}
           userNotFound={userNotFound}

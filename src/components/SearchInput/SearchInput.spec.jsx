@@ -25,7 +25,7 @@ test('default', function () {
   assert.equal(loading.length, 0, 'does not render loading');
 });
 
-test('onChange', function () {
+test('onChange', function (done) {
   const onChange = stub();
 
   const node = shallow(
@@ -37,7 +37,20 @@ test('onChange', function () {
 
   input.simulate('change', e);
 
-  assert.deepEqual(onChange.args[0][0], e, 'calls onChange with event');
+  assert.isTrue(
+    onChange.notCalled,
+    'doesn\'t call onChange before debounce'
+  );
+
+  setTimeout(() => {
+    assert.deepEqual(
+      onChange.args[0][0],
+      e.target.value,
+      'calls onChange with value'
+    );
+
+    done();
+  }, 400);
 });
 
 test('isFetching', function () {

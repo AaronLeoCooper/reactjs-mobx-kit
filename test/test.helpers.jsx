@@ -16,31 +16,38 @@ const decoratorCurried = () => decoratorSimple;
 
 /**
  * Wraps the given component with MobX React <Provider>, injecting
- * passed objects as instantiated stores
+ * passed objects as instantiated stores. Returns a curried function
+ * that accepts the Component to be wrapped plus any props
  * @param {object} stores
  */
 export const mountWithStores = (stores = {}) => {
-  const instantiatedStores = Object.keys(stores)
-    .reduce((acc, storeName) => {
-      const Store = function () {
+  const storeNames = Object.keys(stores);
+
+  // Create the constructor function for each store object
+  const Stores = storeNames
+    .map(storeName =>
+      function () {
         Object.keys(stores[storeName])
           .forEach((storeFieldName) => {
             this[storeFieldName] = stores[storeName][storeFieldName];
           });
-      };
+      }
+    );
 
-      return {
+  // Stores only get instantiated when this curried function is called
+  return (Component, props = {}) => {
+    const instantiatedStores = Stores
+      .reduce((acc, Store, i) => ({
         ...acc,
-        [storeName]: new Store()
-      };
-    }, {});
+        [storeNames[i]]: new Store()
+      }), {});
 
-  return (Component, props = {}) =>
-    mount(
+    return mount(
       <Provider {...instantiatedStores}>
         <Component {...props} />
       </Provider>
     );
+  };
 };
 
 /**

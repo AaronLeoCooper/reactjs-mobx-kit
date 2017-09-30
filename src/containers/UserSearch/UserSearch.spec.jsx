@@ -1,4 +1,3 @@
-import { shallow } from 'enzyme';
 import { assert } from 'chai';
 import { stub } from 'sinon';
 import { mountWithStores } from '../../../test/test.helpers';
@@ -31,6 +30,12 @@ test('renders expected children', function () {
 
   assert.equal(searchInput.length, 1, 'renders <SearchInput>');
 
+  assert.deepEqual(
+    searchInput.prop('onChange'),
+    store.searchUser,
+    'passes searchUser to <SearchInput> onChange'
+  );
+
   assert.equal(
     searchInput.prop('isFetching'),
     store.isFetching,
@@ -51,29 +56,3 @@ test('renders expected children', function () {
     'passes usersHistory to <UsersList>'
   );
 });
-
-// test('onInputChange', function (done) {
-//   const node = mountWrapped(UserSearch);
-
-//   const searchInput = node.find(SearchInput);
-
-//   const instance = shallow(node.find('.UserSearch')).instance();
-
-//   const e = { target: { value: 'test' } };
-
-//   // searchInput.simulate('change', e);
-
-//   instance.onInputChange(e);
-
-//   setTimeout(() => {
-//     console.info(store.searchUser.args[0]);
-
-//     assert.deepEqual(
-//       store.searchUser.args[0][0],
-//       e,
-//       'calls searchUser with input event'
-//     );
-
-//     done();
-//   }, 400);
-// });

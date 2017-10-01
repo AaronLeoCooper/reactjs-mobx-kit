@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+
 import { JSDOM } from 'jsdom';
 import proxyquire from 'proxyquire';
 import hook from 'css-modules-require-hook';
@@ -21,5 +23,7 @@ global.document = window.document;
 global.navigator = {
   userAgent: 'node.js',
 };
+
+global.fetch = _ => Promise.resolve(_);
 
 copyProps(window, global);

@@ -28,7 +28,11 @@ export default class Users {
           this.userNotFound = userName;
         });
       }
-    } catch (e) { /* empty */ }
+    } catch (e) {
+      runInAction('Users :: fetchUser rejected', () => {
+        this.userNotFound = userName;
+      });
+    }
 
     runInAction('Users :: end searchUser', () => {
       this.isFetching = false;

@@ -12,8 +12,8 @@ This is (what I consider) an optimial starting point for ReactJS & MobX projects
 - React Router v4
 - Webpack v3
 - Babel v6 (using Babel Env to target any browsers required for your project)
-- Mocha unit testing suite with util functions
-- ESLint (Airbnb coding style, plus tweaks to keep you sane)
+- Mocha unit tests suite for React components, util functions and MobX stores
+- ESLint (Airbnb coding style, plus some tweaks to loosen it up slightly)
 
 
 ## Commands
@@ -48,10 +48,41 @@ notice any corrections or improvements that can be made to these, feel free to o
 a pull request!
 
 
+## Unit Tests
+
+As mentioned, this React MobX starter kit is TDD-focused (Test-Driven Development).
+You don't have to use TDD with this starting project (and writing unit tests at all
+is entirely your decision), however it's been produced with that in mind.
+
+The unit tests suite setup includes these libraries:
+
+- Mocha
+- Chai
+- Sinon
+- Enzyme
+
+As well as a custom Babel environment definition (defined inside `.babelrc`).
+
+Mocha is configured mainly in the `test/mocha.opts` file, using the QUnit test
+interface to enable you to write simple tests without overly-nested code blocks
+(similar to Tape or Ava's flatter unit tests style).
+
+Currently this project contains a good variety of test samples for you to use as
+a basis for your own tests for components, utility functions and MobX stores.
+
+Running `npm test` runs all tests once, outputting coverage data to the terminal
+and to the `coverage` directory as generated HTML test coverage reports.
+
+Running `npm run test:watch` continuously runs all your tests, automatically
+re-running when files change. The output is set to minimal to be less distracting,
+though it can be changed from the script inside `package.json` by modifying
+the `--reporter` flag.
+
+
 ## To-do Goals
 
-- [ ] Add async store action examples with `fetch`
-- [ ] Write more best practices guides for optimum project setup
+- [ ] Upgrade to React v16 & Enzyme v3
+- [ ] Add a component styleguide (React Storybook or React Styleguidist)
 - [ ] Add component generator CLI
 
 

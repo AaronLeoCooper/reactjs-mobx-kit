@@ -1,10 +1,12 @@
 import { RouterStore } from 'mobx-react-router';
 
 import Text from './Text';
+import Users from './Users';
 
 const appStores = {
   RouterStore,
-  Text
+  Text,
+  Users
 };
 
 function createStore () {

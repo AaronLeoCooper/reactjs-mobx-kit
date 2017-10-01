@@ -11,7 +11,8 @@
     "test": "npm run clean:test && cross-env NODE_ENV=test nyc mocha",
     "test:watch": "cross-env NODE_ENV=test mocha --watch --reporter=min",
     "clean:build": "rimraf ./dist",
-    "clean:test": "rimraf ./coverage ./.nyc_output"
+    "clean:test": "rimraf ./coverage ./.nyc_output",
+    "preinstall": "npm prune"
   },
   "keywords": [
     "reactjs",
@@ -69,6 +70,7 @@
   },
   "dependencies": {
     "history": "^4.6.3",
+    "lodash.debounce": "^4.0.8",
     "mobx": "^3.2.2",
     "mobx-react": "^4.2.2",
     "mobx-react-devtools": "^4.2.15",

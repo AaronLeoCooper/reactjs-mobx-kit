@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  BrowserRouter,
+  Router as BrowserRouter,
   Route
 } from 'react-router-dom';
 

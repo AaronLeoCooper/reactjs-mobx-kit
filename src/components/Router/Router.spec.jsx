@@ -1,10 +1,9 @@
 import React from 'react';
 import { assert } from 'chai';
 import { shallow } from 'enzyme';
-// import { stub } from 'sinon';
 
 import {
-  BrowserRouter,
+  Router as BrowserRouter,
   Route
 } from 'react-router-dom';
 

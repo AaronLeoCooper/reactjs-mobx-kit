@@ -40,6 +40,7 @@ starter kit.
 Here's the guides for each section of the starter kit:
 
 - [Components](src/components/README.md)
+- [Containers](src/containers/README.md)
 - [Stores](src/stores/README.md)
 
 These will be added to over time, and can be freely deleted once you're comfortable
@@ -81,7 +82,6 @@ the `--reporter` flag.
 
 ## To-do Goals
 
-- [ ] Upgrade to React v16 & Enzyme v3
 - [ ] Add a component styleguide (React Storybook or React Styleguidist)
 - [ ] Add component generator CLI
 

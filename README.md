@@ -7,13 +7,13 @@ This is (what I consider) an optimial starting point for ReactJS & MobX projects
 
 ## Key Features
 
-- ReactJS v15.5+ (and v16 once released!)
+- ReactJS v16+
 - MobX
 - React Router v4
 - Webpack v3
-- Babel v6 (using Babel Env to target any browsers required for your project)
+- Babel v6
 - Mocha unit tests suite for React components, util functions and MobX stores
-- ESLint (Airbnb coding style, plus some tweaks to loosen it up slightly)
+- ESLint (Airbnb coding style, plus some tweaks to make it less pedantic)
 
 
 ## Commands
@@ -80,7 +80,7 @@ though it can be changed from the script inside `package.json` by modifying
 the `--reporter` flag.
 
 
-## To-do Goals
+## Project To-dos
 
 - [ ] Add a component styleguide (React Storybook or React Styleguidist)
 - [ ] Add component generator CLI

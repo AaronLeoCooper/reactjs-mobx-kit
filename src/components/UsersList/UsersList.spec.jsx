@@ -43,7 +43,7 @@ test('renders <UserItem> for each user', function () {
   users.forEach((user, i) => {
     const userNode = userNodes.get(i);
 
-    const props = userNode.props;
+    const { props } = userNode;
 
     assert.deepEqual(props, user, 'passes all user fields to <UserItem>');
   });

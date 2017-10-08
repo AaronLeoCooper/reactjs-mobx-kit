@@ -33,7 +33,7 @@ test('@computed htmlStr', function () {
 
   text.setText({ target: { value: 'test' } });
 
-  const htmlStr = text.htmlStr;
+  const { htmlStr } = text;
 
   assert.isTrue(mdStub.calledOnce, 'calls markdownToHtml');
   assert.equal(mdStub.args[0][0], 'test', 'calls markdownToHtml with value');

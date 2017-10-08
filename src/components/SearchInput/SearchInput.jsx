@@ -8,7 +8,7 @@ import s from './SearchInput.styles.scss';
 class SearchInput extends Component {
 
   onChange = (e) => {
-    const value = e.target.value;
+    const { value } = e.target;
 
     this.debouncedOnChange(value);
   }

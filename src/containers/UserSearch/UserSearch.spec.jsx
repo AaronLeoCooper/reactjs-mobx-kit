@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { stub } from 'sinon';
-import { mountWithStores } from '../../../test/test.helpers';
 import { observable } from 'mobx';
+import { mountWithStores } from '../../../test/test.helpers';
 
 import UserSearch from './';
 import SearchInput from '../../components/SearchInput';

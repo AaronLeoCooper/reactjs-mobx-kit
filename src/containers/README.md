@@ -10,12 +10,6 @@ With MobX it's easy to know if you should create a component or a container:
 if you need to use mobx-react's `inject` decorator to connect to a store,
 use a container component to be decorated with the `@inject`.
 
-There's a good reason why containers are advisable and why it's not a good
-idea to use `inject` on all the individual components that need stores.
-Your unit tests will get crazy complex (since you'll need to inject
-stores for even the simplest tests) and it'll potentially be harder to
-find bugs in you app.
-
 The optimal structure for container components is to place files relevant
 to a container inside its own subdirectory, e.g.:
 
@@ -26,6 +20,23 @@ containers/
     ├── UserSearch.jsx
     └── UserSearch.spec.jsx
 ```
+
+### But do I even _need_ container components?
+
+Each to their own. But there's good reasons why I'd advise using dedicated
+container components and why it's _not_ a good idea to use mobx-react `@inject`
+on all components that need stores:
+
+- Your unit tests will get needlesly complex (since you'll need to inject
+  stores for even the simplest of tests)
+- It'll increase the liklihood of encountering hard-to-locate bugs in your app.
+  The same can be said of any modules that mix too many different concerns
+- It keeps your presentation components decoupled from your app's MobX stores
+  and means you could render a presentation component without stores— great for
+  component style guides and unit tests
+
+Container components help mitigate the above by acting as proxies between
+MobX stores and presentation components.
 
 
 ## Do:

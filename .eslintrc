@@ -38,7 +38,11 @@
     "react/prefer-stateless-function": "off",
     "react/require-default-props": "off",
     "prefer-arrow-callback": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "function-paren-newline": "off",
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "a" ]
+    }]
   },
   "parserOptions": {
     "ecmaVersion": 7,

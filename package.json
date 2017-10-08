@@ -64,7 +64,7 @@
     "sinon": "^4.0.1",
     "style-loader": "^0.19.0",
     "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^3.5.5",
+    "webpack": "^3.6.0",
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {

@@ -13,7 +13,7 @@ suite('UserItem');
 test('default', function () {
   const node = shallow(
     <UserItem
-      id="test-id"
+      id={123}
       login="test-login"
       name="test-name"
       company="test-company"
@@ -37,11 +37,16 @@ test('default', function () {
   );
 
   assert.isTrue(
+    node.find(c.id).text().includes('123'),
+    'renders id into id'
+  );
+
+  assert.isTrue(
     htmlUrlA.text().includes('test-htmlUrl'),
     'renders htmlUrl into htmlUrl <a>'
   );
 
-  [ 'id', 'login', 'name', 'company' ]
+  [ 'login', 'name', 'company' ]
     .forEach((field) => {
       assert.isTrue(
         node.find(c[field]).text().includes(`test-${field}`),

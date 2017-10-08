@@ -24,6 +24,7 @@ hook({
 
 global.window = window;
 global.document = window.document;
+global.HTMLElement = window.HTMLElement;
 global.navigator = {
   userAgent: 'node.js',
 };

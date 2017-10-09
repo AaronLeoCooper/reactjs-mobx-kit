@@ -3,7 +3,7 @@ const { observable } = require('mobx');
 
 const users = observable([
   {
-    id: '123456"',
+    id: 123456,
     login: 'MonkeyBusiness"',
     name: 'Chimp Monkey"',
     company: 'Bananas Corporation"',
@@ -11,7 +11,7 @@ const users = observable([
     htmlUrl: 'http://www.google.com"'
   },
   {
-    id: '654321"',
+    id: 654321,
     login: 'PandaChips"',
     name: 'Bamboo Panda"',
     company: 'Bamboo Monolith"',

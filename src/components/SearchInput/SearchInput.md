@@ -13,10 +13,16 @@ const onChange = (value) => setState({ value });
 
 ### Is fetching
 ```js
-<SearchInput isFetching />
+<SearchInput
+  onChange={() => {}}
+  isFetching
+/>
 ```
 
 ### User not found
 ```js
-<SearchInput userNotFound="Sausage man" />
+<SearchInput
+  onChange={() => {}}
+  userNotFound="Sausage man"
+/>
 ```

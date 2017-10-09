@@ -1,6 +1,6 @@
 ```js
 <UserItem
-  id="123456"
+  id={123}
   login="MonkeyBusiness"
   name="Chimp Monkey"
   company="Bananas Corporation"

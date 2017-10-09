@@ -17,6 +17,11 @@ module.exports = {
       name: 'Components',
       content: 'styleguide/Components.md',
       components: 'src/components/**/*.jsx'
+    },
+    {
+      name: 'Containers',
+      content: 'styleguide/Containers.md',
+      components: 'src/containers/**/*.jsx'
     }
   ]
 };

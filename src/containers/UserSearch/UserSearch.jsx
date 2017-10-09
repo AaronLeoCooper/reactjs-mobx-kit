@@ -5,6 +5,10 @@ import { observer, inject, PropTypes as MXPropTypes } from 'mobx-react';
 import SearchInput from '../../components/SearchInput';
 import UsersList from '../../components/UsersList';
 
+/**
+ * Combines together SearchInput & UsersList to provide a
+ * Github user search component
+ */
 @inject('Users')
 @observer
 class UserSearch extends Component {
@@ -32,6 +36,9 @@ class UserSearch extends Component {
 }
 
 UserSearch.wrappedComponent.propTypes = {
+  /**
+   * Users data coming for the MobX Users store
+   */
   Users: PropTypes.shape({
     searchUser: PropTypes.func,
     isFetching: PropTypes.bool,

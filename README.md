@@ -26,6 +26,8 @@ These are the key commands you'll need:
 
 `npm run sg` — Run local component styleguide server for isloated component development
 
+`npm run sg:build` — Compiles the component styleguide into static files (`styleguide/dist`)
+
 `npm run lint` — Run all linting scripts (ESLint, Stylelint coming soon!)
 
 `npm test` — Run tests with coverage output shown

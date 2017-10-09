@@ -2,8 +2,8 @@
  * Component styleguide config
  */
 
-
 module.exports = {
+  styleguideDir: 'styleguide/dist',
   ignore: [
     '**/*.spec.*',
     '**/App.*'

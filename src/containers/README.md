@@ -18,7 +18,8 @@ containers/
 └── UserSearch/
     ├── index.js
     ├── UserSearch.jsx
-    └── UserSearch.spec.jsx
+    ├── UserSearch.spec.jsx
+    └── UserSearch.md (for react-styleguidist)
 ```
 
 ### But do I even _need_ container components?

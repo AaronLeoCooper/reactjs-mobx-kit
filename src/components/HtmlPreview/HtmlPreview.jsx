@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { observer, inject } from 'mobx-react';
+import { observer } from 'mobx-react';
 
 import s from './HtmlPreview.styles.scss';
 
-function HtmlPreview ({ Text }) {
-  const { htmlStr } = Text;
-
+/**
+ * Renders a string as HTML
+ */
+function HtmlPreview ({ htmlStr }) {
   const innerHtml = { __html: htmlStr };
 
   return (
@@ -19,11 +20,10 @@ function HtmlPreview ({ Text }) {
 }
 
 HtmlPreview.propTypes = {
-  Text: PropTypes.shape({
-    htmlStr: PropTypes.string
-  }).isRequired
+  /**
+   * String to render as HTML
+   */
+  htmlStr: PropTypes.string
 };
 
-export default inject('Text')(
-  observer(HtmlPreview)
-);
+export default observer(HtmlPreview);

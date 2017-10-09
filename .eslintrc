@@ -42,7 +42,8 @@
     "function-paren-newline": "off",
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "a" ]
-    }]
+    }],
+    "react/jsx-curly-brace-presence": "off"
   },
   "parserOptions": {
     "ecmaVersion": 7,

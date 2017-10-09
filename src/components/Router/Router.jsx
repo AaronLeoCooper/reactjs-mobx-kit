@@ -5,13 +5,10 @@ import {
   Route
 } from 'react-router-dom';
 
-// const RouteWithSubRoutes = (route) => (
-//   <Route path={route.path} render={props => (
-//     // pass the sub-routes down to keep nesting
-//     <route.component {...props} routes={route.routes}/>
-//   )}/>
-// )
-
+/**
+ * Generic component to render react-router routes and any other
+ * child nodes passed in
+ */
 function Router ({
   history,
   routes,
@@ -35,10 +32,21 @@ function Router ({
 }
 
 Router.propTypes = {
+  /**
+   * A browser history object
+   */
   history: PropTypes.object.isRequired,
+
+  /**
+   * Array of objects to render routes from
+   */
   routes: PropTypes.arrayOf(
     PropTypes.object
   ).isRequired,
+
+  /**
+   * Child nodes to render
+   */
   children: PropTypes.node
 };
 

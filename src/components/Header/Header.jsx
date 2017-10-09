@@ -24,6 +24,9 @@ function Header ({ navItems }) {
 }
 
 Header.propTypes = {
+  /**
+   * Objects to use to render navigation items
+   */
   navItems: PropTypes.arrayOf(PropTypes.shape({
     path: PropTypes.string.isRequired,
     navOptions: PropTypes.shape({

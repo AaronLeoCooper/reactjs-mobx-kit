@@ -7,6 +7,10 @@ import s from './Editor.styles.scss';
 import Textbox from '../../components/Textbox';
 import HtmlPreview from '../../components/HtmlPreview';
 
+/**
+ * Combines together Textbox and HtmlPreview to render
+ * an Markdown-to-HTML editor
+ */
 @inject('Text')
 @observer
 class Editor extends Component {
@@ -34,6 +38,9 @@ class Editor extends Component {
 }
 
 Editor.wrappedComponent.propTypes = {
+  /**
+   * Text store object passed from Text MobX store
+   */
   Text: PropTypes.shape({
     rawText: PropTypes.string,
     htmlStr: PropTypes.string,

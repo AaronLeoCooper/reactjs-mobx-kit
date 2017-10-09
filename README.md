@@ -24,6 +24,8 @@ These are the key commands you'll need:
 
 `npm run build` — Compile your app into static, production-ready, optimised files
 
+`npm run sg` — Run local component styleguide server for isloated component development
+
 `npm run lint` — Run all linting scripts (ESLint, Stylelint coming soon!)
 
 `npm test` — Run tests with coverage output shown

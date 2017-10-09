@@ -126,7 +126,7 @@ const envConfig = IS_PROD
  * Export config
  */
 module.exports = {
-  devtool: IS_PROD ? 'source-map' : 'eval-source-map',
+  devtool: IS_PROD ? 'source-map' : 'cheap-module-source-map',
   entry: [
     ...entry,
     'babel-polyfill',

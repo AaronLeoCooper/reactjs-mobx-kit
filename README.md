@@ -1,19 +1,20 @@
 # Webpack ReactJS Starter Kit
 
-> A TDD-focused ReactJS, MobX, React Router starter kit
+> A TDD-focused ReactJS, MobX, React Router starter kit with component styleguide
 
-This is (what I consider) an optimial starting point for ReactJS & MobX projects, using the latest versions of Webpack, Babel, ReactJS, MobX and React Router v4.
+This is (what I consider) an optimial starting point for ReactJS & MobX projects, using the latest versions of Webpack, Babel, ReactJS, MobX and React Router.
 
 
 ## Key Features
 
-- ReactJS v16+
+- ReactJS v16
 - MobX
 - React Router v4
 - Webpack v3
 - Babel v6
-- Mocha unit tests suite for React components, util functions and MobX stores
+- Mocha unit tests suite for: components, utils and stores
 - ESLint (Airbnb coding style, plus some tweaks to make it less pedantic)
+- React Styleguidist for a "living" component styleguide
 
 
 ## Commands
@@ -23,6 +24,10 @@ These are the key commands you'll need:
 `npm start` — Run a local development server with Hot Module Reloading
 
 `npm run build` — Compile your app into static, production-ready, optimised files
+
+`npm run sg` — Run local component styleguide server for isloated component development
+
+`npm run sg:build` — Compiles the component styleguide into static files (`styleguide/dist`)
 
 `npm run lint` — Run all linting scripts (ESLint, Stylelint coming soon!)
 
@@ -47,6 +52,35 @@ These will be added to over time, and can be freely deleted once you're comforta
 with the practices if you don't like them hanging around in your project. If you
 notice any corrections or improvements that can be made to these, feel free to open
 a pull request!
+
+
+## Component Styleguide
+
+In a web app project?? _Yes!_
+
+Having a local development server for your app is one thing, but having a dedicated
+one for your components offers a way of working on components entirely separately
+from your app to help you in creating truly isolated, reusable components.
+
+I won't go into too much detail here, because this is being achieved using the
+amazing [React Styleguidist](https://react-styleguidist.js.org/) that you should
+definitely check out the docs for to learn more about. It's very easy to add to an
+existing React project, too.
+
+This starter kit already has it set up, just run `npm run sg` to run the local
+development component styleguide server at `localhost:6060`, then start adding or
+changing your component markdown files. It's easiest to locate them right next to
+the component itself:
+
+```
+Header/
+├── Header.jsx
+├── Header.md  <- this enables the styleguide magic!
+└── etc...
+```
+
+And if you want to publish your styleguide to a server, just run: `npm run sg:build`
+and you'll have all the static assets built into `styleguide/dist`.
 
 
 ## Unit Tests

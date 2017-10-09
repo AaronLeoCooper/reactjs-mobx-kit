@@ -10,7 +10,7 @@ test('renders html from string', function () {
   const htmlStr = '<p>html output</p>';
 
   const node = shallow(
-    <HtmlPreview Text={{ htmlStr }} />
+    <HtmlPreview htmlStr={htmlStr} />
   );
 
   assert.isTrue(node.html().includes(htmlStr), 'renders html');

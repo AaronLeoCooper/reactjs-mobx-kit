@@ -5,6 +5,9 @@ import debounce from 'lodash.debounce';
 
 import s from './SearchInput.styles.scss';
 
+/**
+ * An input for searching for Github usernames
+ */
 class SearchInput extends Component {
 
   onChange = (e) => {
@@ -59,8 +62,19 @@ class SearchInput extends Component {
 }
 
 SearchInput.propTypes = {
+  /**
+   * Whether data is being fetched
+   */
   isFetching: PropTypes.bool,
+
+  /**
+   * The name of a user that wasn't found
+   */
   userNotFound: PropTypes.string,
+
+  /**
+   * Method fired when the input value is changed
+   */
   onChange: PropTypes.func.isRequired
 };
 

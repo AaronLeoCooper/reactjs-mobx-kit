@@ -116,7 +116,7 @@ the `--reporter` flag.
 
 ## Project To-dos
 
-- [ ] Add a component styleguide (React Storybook or React Styleguidist)
+- [ ] Add bundle splitting strategies (vendor & consider dynamic imports)
 - [ ] Add component generator CLI
 
 

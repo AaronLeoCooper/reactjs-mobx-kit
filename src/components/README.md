@@ -13,6 +13,7 @@ components/
     ├── Header.jsx
     ├── Header.spec.jsx
     ├── Header.styles.scss
+    ├── Header.md (for react-styleguidist)
     └── other Header-related files...
 ```
 
